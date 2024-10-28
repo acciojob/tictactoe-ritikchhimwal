@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const submitButton = document.getElementById("submit");
 const playerInput = document.getElementById("playerInput");
 const gameBoard = document.getElementById("gameBoard");
@@ -19,7 +18,7 @@ submitButton.addEventListener("click", () => {
         currentPlayer = player1;
         playerInput.style.display = "none";
         gameBoard.style.display = "block";
-        updateMessage(`${currentPlayer}, you're up!`);
+        updateMessage(`${player1}, you're up!`);
     } else {
         alert("Please enter names for both players.");
     }
@@ -41,7 +40,8 @@ function handleMove(cell) {
     cell.textContent = boardState[cellIndex];
 
     if (checkWin()) {
-        updateMessage(`${currentPlayer}, congratulations you won!`);
+        const winnerName = currentPlayer === player1 ? player1 : player2;
+        updateMessage(`${winnerName} congratulations you won!`);
         isGameActive = false;
     } else if (boardState.every(cell => cell !== "")) {
         updateMessage("It's a draw!");

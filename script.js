@@ -12,11 +12,11 @@ let boardState = Array(9).fill("");
 let isGameActive = true;
 
 submitButton.addEventListener("click", () => {
-    player1Name = document.getElementById("player1").value;
-    player2Name = document.getElementById("player2").value;
+    player1 = document.getElementById("player1").value;
+    player2 = document.getElementById("player2").value;
 
-    if (player1Name && player2Name) {
-        currentPlayer = player1Name;
+    if (player1 && player2) {
+        currentPlayer = player1;
         playerInput.style.display = "none";
         gameBoard.style.display = "block";
         updateMessage(`${currentPlayer}, you're up!`);
@@ -37,7 +37,7 @@ function handleMove(cell) {
     const cellIndex = parseInt(cell.id) - 1;
 
     // Mark cell with current player's symbol
-    boardState[cellIndex] = currentPlayer === player1Name ? "X" : "O";
+    boardState[cellIndex] = currentPlayer === player1 ? "x" : "o";
     cell.textContent = boardState[cellIndex];
 
     if (checkWin()) {
@@ -48,7 +48,7 @@ function handleMove(cell) {
         isGameActive = false;
     } else {
         // Switch turn to the other player
-        currentPlayer = currentPlayer === player1Name ? player2Name : player1Name;
+        currentPlayer = currentPlayer === player1 ? player2 : player1;
         updateMessage(`${currentPlayer}, you're up!`);
     }
 }

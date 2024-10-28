@@ -1,6 +1,7 @@
 /*  your css code here. If applicable */
 * {
     box-sizing: border-box;
+	font-family: Gilroy, sans-serif;
 }
 body {
     display: flex;
